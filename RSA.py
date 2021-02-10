@@ -1,19 +1,13 @@
 import random
 
 
-'''
-Euclid's algorithm for determining the greatest common divisor
-Use iteration to make it faster for larger integers
-'''
 def pgcd(a, b):
     
     while b != 0:
         a, b = b, a % b
     return a
 
-'''
-Euclid's extended algorithm for finding the multiplicative inverse of two numbers
-'''
+
 def inverse_modulaire(e, phi):
     
     d = 0
@@ -39,9 +33,7 @@ def inverse_modulaire(e, phi):
     
     return d + phi
 
-'''
-Tests to see if a number is prime.
-'''
+
 def est_premier(num):
     
     print(str(int(num/2)))
@@ -62,28 +54,27 @@ def est_premier(num):
 def generer_cles(p,q):
     
     if not (est_premier(p) and est_premier(q)):
-        return False
+        return False,False
     elif p == q:
-        return False
-    #n = pq
+        return False,False
+
     n = p * q
 
-    #Phi is the totient of n
+
     phi = (p-1) * (q-1)
 
-    #Choose an integer e such that e and phi(n) are coprime
     e = random.randrange(2, phi)
-    #Use Euclid's Algorithm to verify that e and phi(n) are comprime
+
     g = pgcd(e, phi)
     while g != 1:
         e = random.randrange(2, phi)
         g = pgcd(e, phi)
 
-    #Use Extended Euclid's Algorithm to generate the private key
+
     d = inverse_modulaire(e, phi)
     
-    #Return public and private keypair
-    #Public key is (e, n) and private key is (d, n)
+
+    # cle public is (e, n) and cle privé is (d, n)
     
 
     return ((e, n), (d, n))

@@ -53,8 +53,8 @@ class Ui_cryptofichier(QMainWindow):
             
 
         except :
-              #self.msg_0.show() 
-              print("erreur")
+              self.msg_0.show() 
+              
 
     def crypterf(self):
         self.FilePath=self.chemin.text()
@@ -69,15 +69,20 @@ class Ui_cryptofichier(QMainWindow):
             if ".txt" in extension[1]:
                 try:
                     with open(self.FilePath, 'r') as myfile:
-                        data = myfile.read()
+                        
+                        file1 = open('myfile.txt', 'w')
+                        
+                        Lines = myfile.readlines()
+                        for line in Lines:
+                            count += 1
+                            print("Line{}: {}".format(count, line.strip()))
+                            encrypted_msg=encrypt(self.rsapc, line.strip())
+                            txt='µ'.join(map(lambda x: str(x), encrypted_msg))
+                            file1.writeline(txt)
 
-                        encrypted_msg=encrypt(self.rsapc, data)
-                        txt='µ'.join(map(lambda x: str(x), encrypted_msg))
                 
                     
-                    os.remove(self.FilePath)
-                    with open(self.FilePath, 'w') as outputfile:
-                        outputfile.write(str(txt))
+                    file1.close()
                     self.msg_3.show()
 
 
