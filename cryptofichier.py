@@ -16,18 +16,17 @@ class Ui_cryptofichier(QMainWindow):
         loadUi("cryptofichier.ui", self)
       
         self.FilePath=""
-        self.msg_erreur.hide()
-       
-        self.msg_11.hide()
-        self.msg_13.hide()
-        self.msg_14.hide()
-        self.msg_15.hide()
+        self.msg_0.hide()
+        self.msg_1.hide()
+        self.msg_2.hide()
+        self.msg_3.hide()
+        self.msg_4.hide()
         
         self.exit.clicked.connect(self.close)
         self.reduit.clicked.connect(self.showMinimized)
        
     
-        #self.confirmer_btn.clicked.connect()
+        self.confirmer_btn.clicked.connect(self.generercles)
         self.parcourire_btn.clicked.connect(self.choisirchemin)
         
         self.crypter_btn.clicked.connect(self.crypterf)
@@ -39,15 +38,32 @@ class Ui_cryptofichier(QMainWindow):
     
 
         
-    
+    def generercles(self):
+        self.msg_0.hide()
+        
+        print(str(self.rsap.value())+" "+str(self.rsaq.value()))
+        
+        try:
+            public, private = generer_cles(self.rsap.value(), self.rsaq.value())
+            self.rsapc=(public[0], public[1])
+            self.rsapr=(private[0], private[1])
+            self.clepub.setText(str(self.rsapc))
+            self.cleprv.setText(str(self.rsapr))
+           
+            
+
+        except :
+              #self.msg_0.show() 
+              print("erreur")
+
     def crypterf(self):
         self.FilePath=self.chemin.text()
-        self.msg_11.hide()
-        self.msg_13.hide()
-        self.msg_14.hide()
-        self.msg_15.hide()
+        self.msg_1.hide()
+        self.msg_2.hide()
+        self.msg_3.hide()
+        self.msg_4.hide()
         if self.FilePath=="":
-            self.msg_11.show()
+            self.msg_1.show()
         else:
             extension=os.path.splitext(self.FilePath)
             if ".txt" in extension[1]:
@@ -62,23 +78,23 @@ class Ui_cryptofichier(QMainWindow):
                     os.remove(self.FilePath)
                     with open(self.FilePath, 'w') as outputfile:
                         outputfile.write(str(txt))
-                    self.msg_14.show()
+                    self.msg_3.show()
 
 
                 except :
-                    self.msg_13.show()
-            else :
-                self.msg_12.show()      
+                    self.msg_2.show()
+            
         
 
     def decrypterf(self):
         self.FilePath=self.chemin.text()
-        self.msg_11.hide()
-        self.msg_13.hide()
-        self.msg_14.hide()
-        self.msg_15.hide()
+        self.msg_0.hide()
+        self.msg_1.hide()
+        self.msg_2.hide()
+        self.msg_3.hide()
+        self.msg_4.hide()
         if self.FilePath=="":
-            self.msg_11.show()
+            self.msg_1.show()
         else:
             extension=os.path.splitext(self.FilePath)
             if ".txt" in extension[1]:
@@ -93,24 +109,24 @@ class Ui_cryptofichier(QMainWindow):
                     os.remove(self.FilePath)
                     with open(self.FilePath, 'w') as outputfile:
                         outputfile.write(str(txt))
-                    self.msg_15.show()
+                    self.msg_4.show()
 
 
                 except :
-                    self.msg_13.show()
-            else :
-                self.msg_12.show()      
+                    self.msg_2.show()
+   
         
     
 
     def ouvrir(self):
         self.FilePath=self.chemin.text()
-        self.msg_11.hide()
-        self.msg_13.hide()
-        self.msg_14.hide()
-        self.msg_15.hide()
+        self.msg_0.hide()
+        self.msg_1.hide()
+        self.msg_2.hide()
+        self.msg_3.hide()
+        self.msg_4.hide()
         if self.FilePath=="":
-            self.msg_11.show()
+            self.msg_1.show()
         else:
             extension=os.path.splitext(self.FilePath)
             if ".txt" in extension[1]:
@@ -120,16 +136,15 @@ class Ui_cryptofichier(QMainWindow):
                         os.startfile(self.FilePath)
                         
                 except :
-                    self.msg_13.show()
-            else :
-                self.msg_12.show()      
+                    self.msg_2.show()
+    
         
         
     def choisirchemin(self):
-        self.msg_11.hide()
-        self.msg_13.hide()
-        self.msg_14.hide()
-        self.msg_15.hide()
+        self.msg_1.hide()
+        self.msg_2.hide()
+        self.msg_3.hide()
+        self.msg_4.hide()
         self.FilePath,type = QFileDialog.getOpenFileName(self)
         self.chemin.setText(self.FilePath)
         

@@ -6,6 +6,7 @@ Euclid's algorithm for determining the greatest common divisor
 Use iteration to make it faster for larger integers
 '''
 def pgcd(a, b):
+    
     while b != 0:
         a, b = b, a % b
     return a
@@ -14,6 +15,7 @@ def pgcd(a, b):
 Euclid's extended algorithm for finding the multiplicative inverse of two numbers
 '''
 def inverse_modulaire(e, phi):
+    
     d = 0
     x1 = 0
     x2 = 1
@@ -41,20 +43,28 @@ def inverse_modulaire(e, phi):
 Tests to see if a number is prime.
 '''
 def est_premier(num):
-    if num == 2:
-        return True
-    if num < 2 or num % 2 == 0:
-        return False
-    for n in range(3, int(num**0.5)+2, 2):
-        if num % n == 0:
-            return False
-    return True
+    
+    print(str(int(num/2)))
+    if num > 1:
+ 
 
-def generate_keypair(p, q):
+        for i in range(2, int(num/2)):
+     
+           
+            if (num % i) == 0:
+                return False
+        else:
+             return True
+ 
+    else:
+         return False
+
+def generer_cles(p,q):
+    
     if not (est_premier(p) and est_premier(q)):
-        raise ValueError('Both numbers must be prime.')
+        return False
     elif p == q:
-        raise ValueError('p and q cannot be equal')
+        return False
     #n = pq
     n = p * q
 
@@ -74,6 +84,8 @@ def generate_keypair(p, q):
     
     #Return public and private keypair
     #Public key is (e, n) and private key is (d, n)
+    
+
     return ((e, n), (d, n))
 
 def encrypt(pk, plaintext):
@@ -104,7 +116,7 @@ if __name__ == '__main__':
     print ("Generating your public/private keypairs now . . .")
     while True:
         
-        public, private = generate_keypair(p, q)
+        public, private = generer_cles(p, q)
         print ("Your public key is ", public ," and your private key is ", private)
         if private[0]!=None:
             break
