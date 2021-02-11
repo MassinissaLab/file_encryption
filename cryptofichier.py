@@ -85,8 +85,9 @@ class Ui_cryptofichier(QMainWindow):
                         count += 1
                         print("Line{}: {}".format(count, line.strip()))
                         encrypted_msg=encrypt(self.rsapc, line.strip())
-                    
-                        self.L.append(encrypted_msg+"\n")
+                        #D:/WorkSpaces/Python workspace/tests/test.txt
+                        
+                        self.L.append(''.join(encrypted_msg+"\n"))
 
                         
                     print(self.L)      
