@@ -83,11 +83,21 @@ class Ui_cryptofichier(QMainWindow):
                     count = 0
                     for line in Lines:
                         count += 1
-                        print("Line{}: {}".format(count, line.strip()))
+                        #print("Line{}: {}".format(count, line.strip()))
                         encrypted_msg=encrypt(self.rsapc, line.strip())
                         #D:/WorkSpaces/Python workspace/tests/test.txt
+                        #print(''.join(map(lambda x: str(x), encrypted_msg)))
+                        x=''
+                        for i in encrypted_msg:
+                            if(i=='400'):
+                                x+=' '
+                            else:
+
+                                c=chr(i)
+                                x+=c
                         
-                        self.L.append(''.join(encrypted_msg+"\n"))
+                        print(x)
+                        #self.L.append(''.join(map(lambda x: chr(x), encrypted_msg))+'\n')
 
                         
                     print(self.L)      
@@ -118,7 +128,7 @@ class Ui_cryptofichier(QMainWindow):
                         data = myfile.read()
                    
                     encrypted_msg=decrypt(self.rsapr, data)
-                    txt='µ'.join(map(lambda x: str(x), encrypted_msg))
+                    
                     
                     
                     os.remove(self.FilePath)
