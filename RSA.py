@@ -36,7 +36,7 @@ def inverse_modulaire(e, phi):
 
 def est_premier(num):
     
-    print(str(int(num/2)))
+    
     if num > 1:
  
 
@@ -80,43 +80,44 @@ def generer_cles(p,q):
     return ((e, n), (d, n))
 
 def encrypt(pk, plaintext):
-    #Unpack the key into it's components
+    
     key, n = pk
-    #Convert each letter in the plaintext to numbers based on the character using a^b mod m
+    
     cipher = [(ord(char) ** key) % n for char in plaintext]
-    #Return the array of bytes
+    print(cipher)
     return cipher
 
 def decrypt(pk, ciphertext):
   
-    #Unpack the key into its components
+    
     key, n = pk
-    #Generate the plaintext based on the ciphertext and key using a^b mod m
+    
     plain = [chr((char ** key) % n) for char in ciphertext]
-    #Return the array of bytes as a string
+    
     return ''.join(plain)
     
 
-if __name__ == '__main__':
+
     
     #Detect if the script is being run directly by the user
     
-    print ("RSA Encrypter/ Decrypter")
-    p = int(input("Enter a prime number (17, 19, 23, etc): "))
-    q = int(input("Enter another prime number (Not one you entered above): "))
-    print ("Generating your public/private keypairs now . . .")
-    while True:
-        
-        public, private = generer_cles(p, q)
-        print ("Your public key is ", public ," and your private key is ", private)
-        if private[0]!=None:
-            break
+print ("RSA Encrypter/ Decrypter")
+p = 3
+q = 7
+print ("Generating your public/private keypairs now . . .")
 
-    message = input("Enter a message to encrypt with your private key: ")
-    encrypted_msg = encrypt(public, message)
-    print ("Your encrypted message is: ")
-    print ('µ'.join(map(lambda x: str(x), encrypted_msg)))
-    print(encrypted_msg)
-    print ("Decrypting message with public key ", private ," . . .")
-    print ("Your message is:")
-    print (decrypt(private, encrypted_msg))
+    
+public, private = generer_cles(p, q)
+print ("Your public key is ", public ," and your private key is ", private)
+
+
+
+encrypted_msg = encrypt(public,"message")
+print ("Your encrypted message is: ")
+print (''.join(map(lambda x: str(x), encrypted_msg)))
+print(encrypted_msg)
+test = [char(char) for char in encrypted_msg]
+print(test)
+print ("Decrypting message with public key ", private ," . . .")
+print ("Your message is:")
+print (decrypt(private, encrypted_msg))

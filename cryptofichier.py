@@ -10,11 +10,11 @@ from RSA import *
 import pickle
 
 class Ui_cryptofichier(QMainWindow):
-    global   rsapc,rsapr,FilePath
+    global   rsapc,rsapr,FilePath,L
     def __init__(self):
         super(Ui_cryptofichier, self).__init__()
         loadUi("cryptofichier.ui", self)
-      
+        self.L=[]
         self.FilePath=""
         self.msg_0.hide()
         self.msg_1.hide()
@@ -41,7 +41,7 @@ class Ui_cryptofichier(QMainWindow):
     def generercles(self):
         self.msg_0.hide()
         
-        print(str(self.rsap.value())+" "+str(self.rsaq.value()))
+        
         
         try:
             public, private = generer_cles(self.rsap.value(), self.rsaq.value())
@@ -49,8 +49,7 @@ class Ui_cryptofichier(QMainWindow):
             self.rsapr=(private[0], private[1])
             self.clepub.setText(str(self.rsapc))
             self.cleprv.setText(str(self.rsapr))
-           
-            
+
 
         except :
               self.msg_0.show() 
@@ -62,32 +61,42 @@ class Ui_cryptofichier(QMainWindow):
         self.msg_2.hide()
         self.msg_3.hide()
         self.msg_4.hide()
+        print(self.FilePath)
+        print(self.rsapc)
         if self.FilePath=="":
             self.msg_1.show()
         else:
-            extension=os.path.splitext(self.FilePath)
-            if ".txt" in extension[1]:
-                try:
-                    with open(self.FilePath, 'r') as myfile:
-                        
-                        file1 = open('myfile.txt', 'w')
-                        
-                        Lines = myfile.readlines()
-                        for line in Lines:
-                            count += 1
-                            print("Line{}: {}".format(count, line.strip()))
-                            encrypted_msg=encrypt(self.rsapc, line.strip())
-                            txt='µ'.join(map(lambda x: str(x), encrypted_msg))
-                            file1.writeline(txt)
-
+            #extension=os.path.splitext(self.FilePath)
+            #if ".txt" in extension[1]:
+            """try:
                 
+
+
+            except :
+                self.msg_2.show()"""
+
+            with open(self.FilePath,'r') as myfile:
                     
-                    file1.close()
-                    self.msg_3.show()
+                    
+                    
+                    Lines = myfile.readlines()
+                    count = 0
+                    for line in Lines:
+                        count += 1
+                        print("Line{}: {}".format(count, line.strip()))
+                        encrypted_msg=encrypt(self.rsapc, line.strip())
+                    
+                        self.L.append(encrypted_msg+"\n")
 
-
-                except :
-                    self.msg_2.show()
+                        
+                    print(self.L)      
+                    if self.L==[]:
+                        self.msg_2.show()
+                    else:    
+                        fcript = open('fcypt.txt', 'w')
+                        fcript.writelines(self.L)
+                        fcript .close()
+                        self.msg_3.show()
             
         
 
@@ -107,7 +116,7 @@ class Ui_cryptofichier(QMainWindow):
                     with open(self.FilePath, 'r') as myfile:
                         data = myfile.read()
                    
-                    encrypted_msg=decrypt(self.rsapc, data)
+                    encrypted_msg=decrypt(self.rsapr, data)
                     txt='µ'.join(map(lambda x: str(x), encrypted_msg))
                     
                     
@@ -150,7 +159,7 @@ class Ui_cryptofichier(QMainWindow):
         self.msg_2.hide()
         self.msg_3.hide()
         self.msg_4.hide()
-        self.FilePath,type = QFileDialog.getOpenFileName(self)
+        self.FilePath,Filetype = QFileDialog.getOpenFileName(self)
         self.chemin.setText(self.FilePath)
         
 if __name__ == "__main__":

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>674</width>
+    <width>682</width>
     <height>362</height>
    </rect>
   </property>
@@ -22,7 +22,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>671</width>
+      <width>681</width>
       <height>30</height>
      </rect>
     </property>
@@ -178,6 +178,9 @@ font: 75 16pt &quot;Century Gothic&quot;;
     </layout>
    </widget>
    <widget class="QPushButton" name="ouvrire_btn">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>580</x>
@@ -210,6 +213,9 @@ color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QPushButton" name="decrypter_btn">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>450</x>
@@ -242,6 +248,9 @@ color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QPushButton" name="crypter_btn">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -436,9 +445,12 @@ font: 75 16pt &quot;Century Gothic&quot;;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="chemin">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>210</y>
       <width>491</width>
       <height>31</height>
@@ -527,9 +539,12 @@ color:#ffffff;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="parcourire_btn">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>500</x>
+      <x>510</x>
       <y>210</y>
       <width>161</width>
       <height>31</height>
