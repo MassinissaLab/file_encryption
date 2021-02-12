@@ -183,7 +183,7 @@ font: 75 16pt &quot;Century Gothic&quot;;
     </property>
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>530</x>
       <y>270</y>
       <width>121</width>
       <height>31</height>
@@ -218,7 +218,7 @@ color: rgb(255, 255, 255);</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>390</x>
       <y>270</y>
       <width>121</width>
       <height>31</height>
@@ -232,6 +232,7 @@ color: rgb(255, 255, 255);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 14pt &quot;5by7&quot;;
+border-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);font: 14pt &quot;5by7&quot;;
 </string>
     </property>
