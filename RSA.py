@@ -87,17 +87,19 @@ def encrypt(pub_key,n_text):
 	x=[]
 	m=0
 	for i in n_text:
-		if(i.isupper()):
-			m = ord(i)-65
-			c=(m**e)%n
-			x.append(c)
-		elif(i.islower()):               
-			m= ord(i)-97
-			c=(m**e)%n
-			x.append(c)
-		elif(i.isspace()):
+		if(i.isspace()):
 			spc=400
 			x.append(400)
+		else:
+
+			m = ord(i)
+			
+			c=(m**e)%n
+			print(str(i)+' '+str(ord(i))+' '+str(m)+' '+str(c))
+
+			x.append(c)
+		
+		
 	return x
 	 
  
@@ -113,7 +115,7 @@ def decrypt(priv_key,c_text):
 			x+=' '
 		else:
 			m=(int(i)**d)%n
-			m+=65
+			
 			c=chr(m)
 			x+=c
 	return x
@@ -129,7 +131,8 @@ print ("Your public key is ", public ," and your private key is ", private)
 
 
 
-encrypted_msg = encrypt(public,"message")
+encrypted_msg = encrypt(public,"Message")
+
 print ("Your encrypted message is: ")
 print(encrypted_msg)
 
