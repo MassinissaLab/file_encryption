@@ -2,7 +2,7 @@ from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 from Crypto.Signature import PKCS1_v1_5
 from Crypto import Random
-from base64 import b64encode, b64decode
+import base64
 import docx
 
 
@@ -34,15 +34,16 @@ def getpublickey(priv_key):
 
 def encrypt(message, pub_key):
    cipher = PKCS1_OAEP.new(pub_key)
+
    return cipher.encrypt(message)
 
 def decrypt(ciphertext, priv_key):
    cipher = PKCS1_OAEP.new(priv_key)
    return cipher.decrypt(ciphertext)
 
-filename="D:/WorkSpaces/Python workspace/tests/test.docx"
-
-doc =docx.Document(filename)
+fichier="D:/WorkSpaces/Python workspace/tests/test.docx"
+crypter="crypter.docx"
+doc =docx.Document(fichier)
 ClearText =[]
 cc=[]
 for p in doc.paragraphs :
@@ -54,26 +55,63 @@ for el in ClearText:
 
 public, private =newkeys(1024)
 
-print(public,private)
+print(cc)
 pk=importKey('public.pem')
 
 
+docc = docx.Document() 
+        
 
 
 result=[]
 print ("********************************  ENCRYPT  ************************************")
 for p in cc:
+	pf=[]
 	for e in p :
-		print(e)
-		result.append(encrypt(e.encode('utf-8'),pk))
+		
+		pf.extend(str(base64.b64encode(encrypt(e.encode('utf-8'),public)), encoding='utf-8')+" ")
+
+	result.append(pf)
 
 print(result)
+for pp in result :
+	para = docc.add_paragraph().add_run(pp)
+docc.save(crypter)
+
+print("*********************************  DECRYPT  ************************************ \n")
 
 
-print("*********************************  DECRYPT  ************************************")
+crypt="crypter.docx"
+docc =docx.Document(crypt)
+
+CypherText =[]
+ccc=[]
+for p in docc.paragraphs :
+	CypherText.append(p.text)
+
+
+
+
+for el in CypherText:
+
+	
+	ccc.append(el.split(" "))
+
+
+
+
+cpt=0
+for elm in ccc:
+	for l in elm:
+	 	cpt+=1
+
+print(cpt)	
+print(ccc)
+
+"""
 d=""
-for e in result:
-	d+=decrypt(e,private).decode('utf-8')+" "
+for e in CypherText:
+	print(decrypt(base64.b64decode(e),private).decode('utf-8')+" ")
 
 
-print(d)
+"""
