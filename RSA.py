@@ -7,7 +7,7 @@ def est_premier(a):
 	elif(a>2):
 		for i in range(2,a):
 			if not(a%i):
-				return false
+				return False
 	return True
  
 
@@ -55,7 +55,9 @@ def mult_inv(e,r):
 
 
 def generer_cles(p,q):
-	
+
+
+
 	if not (est_premier(p) and est_premier(q)):
 		return False,False
 	elif p == q:
@@ -65,7 +67,7 @@ def generer_cles(p,q):
 
 
 	r = (p-1) * (q-1)
-	print(r)
+	
 
 	e = random.randrange(2, r)
 	g = egcd(e, r)
@@ -87,18 +89,15 @@ def encrypt(pub_key,n_text):
 	x=[]
 	m=0
 	for i in n_text:
-		if(i.isspace()):
-			spc=400
-			x.append(400)
-		else:
+	
 
-			m = ord(i)
-			
-			c=(m**e)%n
-			print(str(i)+' '+str(ord(i))+' '+str(m)+' '+str(c))
-
-			x.append(c)
+		m = ord(i)
 		
+		c=(m**e)%n
+		
+
+		x.append(c)
+	
 		
 	return x
 	 
@@ -111,15 +110,48 @@ def decrypt(priv_key,c_text):
 	x=''
 	m=0
 	for i in txt:
-		if(i=='400'):
-			x+=' '
-		else:
-			m=(int(i)**d)%n
-			
-			c=chr(m)
-			x+=c
+		
+		m=(int(i)**d)%n
+		
+		c=chr(m)
+		x+=c
+
+		
 	return x
  
+
+def p_q_autocle():
+
+
+	p = random.randrange(11,99)
+	q = random.randrange(11,99)
+
+	while est_premier(p) is False or est_premier(q) is False or p==q:
+		p = random.randrange(11,99)
+		q = random.randrange(11,99)
+			
+
+	n = p * q
+
+
+	r = (p-1) * (q-1)
+	
+
+	e = random.randrange(2, r)
+	g = egcd(e, r)
+	while g != 1:
+		e = random.randrange(2, r)
+		g = egcd(e, r)
+
+	#eugcd(e,r)
+	d = mult_inv(e,r)
+
+	print(d)
+	# cle public is (e, n) and cle privé is (d, n)
+	
+
+	return ((e, n), (d, n))
+
 print ("RSA Encrypter/ Decrypter")
 p = 11
 q = 17
@@ -127,11 +159,12 @@ print ("Generating your public/private keypairs now . . .")
 
 	
 public, private = generer_cles(p, q)
+#public, private = p_q_autocle()
 print ("Your public key is ", public ," and your private key is ", private)
 
 
 
-encrypted_msg = encrypt(public,"Message")
+encrypted_msg = encrypt(public,"text of the printing")
 
 print ("Your encrypted message is: ")
 print(encrypted_msg)

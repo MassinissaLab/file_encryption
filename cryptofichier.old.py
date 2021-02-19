@@ -7,180 +7,258 @@ import os,subprocess,sys
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtCore import Qt
 from RSA import *
-import pickle
-
+import codecs
+import docx 
 class Ui_cryptofichier(QMainWindow):
-	global   rsapc,rsapr,FilePath,L
-	def __init__(self):
-		super(Ui_cryptofichier, self).__init__()
-		loadUi("cryptofichier.ui", self)
-		self.L=[]
-		self.FilePath=""
-		self.msg_0.hide()
-		self.msg_1.hide()
-		self.msg_2.hide()
-		self.msg_3.hide()
-		self.msg_4.hide()
-		
-		self.exit.clicked.connect(self.close)
-		self.reduit.clicked.connect(self.showMinimized)
-	   
-	
-		self.confirmer_btn.clicked.connect(self.generercles)
-		self.parcourire_btn.clicked.connect(self.choisirchemin)
-		
-		self.crypter_btn.clicked.connect(self.crypterf)
-		self.decrypter_btn.clicked.connect(self.decrypterf)
-		
-		
-		self.setWindowFlags(Qt.FramelessWindowHint)
-
-	
-
-		
-	def generercles(self):
-		self.msg_0.hide()
-		
-		
-		
-		try:
-			public, private = generer_cles(self.rsap.value(), self.rsaq.value())
-			self.rsapc=(public[0], public[1])
-			self.rsapr=(private[0], private[1])
-			self.clepub.setText(str(self.rsapc))
-			self.cleprv.setText(str(self.rsapr))
+    global   rsapc,rsapr,FilePath,ResultPath
+    def __init__(self):
+        super(Ui_cryptofichier, self).__init__()
+        loadUi("cryptofichier.ui", self)
+        self.FilePath=""
+        self.ResultPath=""
+        self.msg_0.hide()
+        self.msg_1.hide()
+        self.msg_2.hide()
+        self.msg_3.hide()
+        self.msg_4.hide()
+        self.msg_5.hide()
+        self.msg_6.hide()
+        self.msg_7.hide()
+        
+       
+    
+        self.confirmer_btn.clicked.connect(self.generercles)
+        self.confirmer_btn_2.clicked.connect(self.generercles2)
+        self.parcourire_btn.clicked.connect(self.choisirchemin)
+        self.parcourire_btn_2.clicked.connect(self.rchoisirchemin)
+        self.crypter_btn.clicked.connect(self.crypterf)
+        self.decrypter_btn.clicked.connect(self.decrypterf)
+          
+    def generercles(self):
+        self.msg_0.hide()
+         
+        
+        try:
+            public, private = generer_cles(self.rsap.value(), self.rsaq.value())
+            self.rsapc=(public[0], public[1])
+            self.rsapr=(private[0], private[1])
+            self.clepub.setText(str(self.rsapc))
+            self.cleprv.setText(str(self.rsapr))
 
 
-		except :
-			  self.msg_0.show() 
-			  
+        except :
+              self.msg_0.show() 
 
-	def crypterf(self):
-		self.FilePath=self.chemin.text()
-		self.msg_1.hide()
-		self.msg_2.hide()
-		self.msg_3.hide()
-		self.msg_4.hide()
-		print(self.FilePath)
-		print(self.rsapc)
-		if self.FilePath=="":
-			self.msg_1.show()
-		else:
-			#extension=os.path.splitext(self.FilePath)
-			#if ".txt" in extension[1]:
-			"""try:
-				
+    def generercles2(self):
 
+            public, private = p_q_autocle()
+            self.rsapc=(public[0], public[1])
+            self.rsapr=(private[0], private[1])
+            self.clepub.setText(str(self.rsapc))
+            self.cleprv.setText(str(self.rsapr))
 
-			except :
-				self.msg_2.show()"""
+              
 
-			with open(self.FilePath,'r') as myfile:
-					
-					
-					
-					Lines = myfile.readlines()
-					count = 0
-					for line in Lines:
-						count += 1
-						#print("Line{}: {}".format(count, line.strip()))
-						encrypted_msg=encrypt(self.rsapc, line.strip())
-						#D:/WorkSpaces/Python workspace/tests/test.txt
-						print("encrypted")
-						print(encrypted_msg)
-						print("joined")
-						print(''.join(map(lambda x: str(x), encrypted_msg)))
-						x=''
-						for i in encrypted_msg:
-							print(i)
-							if(i==400):
-								print('space')
-								x+=' '
-							else:
+    def crypterf(self):
+        self.FilePath=self.chemin.text()
+        self.ResultPath=self.rchemin.text()
+        self.msg_1.hide()
+        self.msg_2.hide()
+        self.msg_3.hide()
+        self.msg_4.hide()
+        self.msg_5.hide()
+        self.msg_6.hide()
+        self.msg_7.hide()
 
-								c=chr(i)
-								x+=c
-						
-						
-						print(x)
-						#self.L.append(''.join(map(lambda x: chr(x), encrypted_msg))+'\n')
+        L=[]
+       
+        print(self.rsapc)
+        if self.FilePath=="":
+            self.msg_1.show()
+        elif self.ResultPath=="":
+            self.msg_6.show()
 
-						
-					print(self.L)      
-					if self.L==[]:
-						self.msg_2.show()
-					else:    
-						fcript = open('fcypt.txt', 'w')
-						fcript.writelines(self.L)
-						fcript .close()
-						self.msg_3.show()
-			
-		
+        else:
+            extension=os.path.splitext(self.FilePath)
+            extr=os.path.splitext(self.ResultPath)
+            if ".txt" not in extr[1]:
+                self.msg_5.show()
 
-	def decrypterf(self):
-		self.FilePath=self.chemin.text()
-		self.msg_0.hide()
-		self.msg_1.hide()
-		self.msg_2.hide()
-		self.msg_3.hide()
-		self.msg_4.hide()
-		if self.FilePath=="":
-			self.msg_1.show()
-		else:
-			extension=os.path.splitext(self.FilePath)
-			if ".txt" in extension[1]:
-				try:
-					with open(self.FilePath, 'r') as myfile:
-						data = myfile.read()
-				   
-					encrypted_msg=decrypt(self.rsapr, data)
-					
-					
-					
-					os.remove(self.FilePath)
-					with open(self.FilePath, 'w') as outputfile:
-						outputfile.write(str(txt))
-					self.msg_4.show()
+            elif ".txt" in extension[1]:
 
 
-				except :
-					self.msg_2.show()
-   
-		
-	
+                with open(self.FilePath,'r') as myfile:
 
-	def ouvrir(self):
-		self.FilePath=self.chemin.text()
-		self.msg_0.hide()
-		self.msg_1.hide()
-		self.msg_2.hide()
-		self.msg_3.hide()
-		self.msg_4.hide()
-		if self.FilePath=="":
-			self.msg_1.show()
-		else:
-			extension=os.path.splitext(self.FilePath)
-			if ".txt" in extension[1]:
-				try:
-					if sys.platform == "win32":
-						
-						os.startfile(self.FilePath)
-						
-				except :
-					self.msg_2.show()
-	
-		
-		
-	def choisirchemin(self):
-		self.msg_1.hide()
-		self.msg_2.hide()
-		self.msg_3.hide()
-		self.msg_4.hide()
-		self.FilePath,Filetype = QFileDialog.getOpenFileName(self)
-		self.chemin.setText(self.FilePath)
-		
+                        Lines = myfile.readlines()
+                    
+                        for line in Lines:
+                           
+                            
+                            encrypted_msg=encrypt(self.rsapc, line.strip())
+
+
+                            x=''
+                            for i in encrypted_msg:
+                                
+                     
+                                c=chr(i)
+                                
+                                x+=c
+                
+                            
+                            
+                            L.append(x)
+
+                        
+                print("encrypted")
+                print(L)
+                if L==[]:
+                    self.msg_2.show()
+                else:    
+                    
+                    fcript =codecs.open(self.ResultPath, "w", "utf-8-sig")
+                    fcript.writelines(L)
+                    fcript .close()
+                    self.msg_3.show()
+            elif ".docx" in extension[1]:
+                print("word docx")
+                doc =docx.Document(self.FilePath)
+
+
+                Text =[]
+                
+                for pr in doc.paragraphs :
+                    Text.append(pr.text)
+
+                
+                if Text==[]:
+                    self.msg_2.show()
+                else:  
+                    Q=[]
+                    for p in Text:
+                        encrypted_msg = encrypt(public,p)
+                        x=''
+                        for i in encrypted_msg:
+                            
+
+                            c=chr(i)
+                            
+                            x+=c
+
+                        
+                        
+                        Q.append(x) 
+                       
+                    fcript =codecs.open(self.ResultPath, "w","utf-8-sig")
+                    fcript.writelines(Q)
+                    fcript.close()
+                    self.msg_3.show()
+        
+
+    def decrypterf(self):
+        
+        self.FilePath=self.chemin.text()
+        self.ResultPath=self.rchemin.text()
+        self.msg_0.hide()
+        self.msg_1.hide()
+        self.msg_2.hide()
+        self.msg_3.hide()
+        self.msg_4.hide()
+        self.msg_5.hide()
+        self.msg_6.hide()
+        self.msg_7.hide()
+
+        #self.rsapr=(self.pk1.value(),self.pk2.value())
+        print(self.rsapr)
+        
+
+        if self.FilePath=="":
+            self.msg_1.show()
+        elif self.ResultPath=="":
+            self.msg_6.show()
+
+        else:
+            extension=os.path.splitext(self.FilePath)
+            extr=os.path.splitext(self.ResultPath)
+
+            if(".txt" not in extension[1]):
+                self.msg_7.show()
+
+            
+            else :
+
+                print("recuperer text")
+                L=[]
+                with codecs.open(self.FilePath, "r", "utf-8-sig") as myfile:
+                                
+                    Lines = myfile.readlines()
+                    
+                    for line in Lines:
+                        
+                        x=[]
+                        m=0
+                        for i in line:
+                            m = ord(i)
+                            x.append(m)
+
+                        
+                        
+                        decrypted_msg=decrypt(self.rsapr,x)
+                        
+                        L.append(decrypted_msg)
+
+                    
+                if L==[]:
+
+                    self.msg_2.show()
+
+                else:  
+                    if ".txt" in extr[1]:
+
+                        fcript =codecs.open(self.ResultPath, "w","utf-8-sig")
+                        fcript.writelines(L)
+                        fcript.close()
+                        self.msg_4.show()
+
+                    elif ".docx" in extr[1]:
+
+
+                        doc1 = docx.Document() 
+                                
+                        pp="".join(L)
+                        
+                        para = doc1.add_paragraph().add_run(pp) 
+
+                        doc1.save(self.ResultPath)
+                        self.msg_4.show()
+                       
+
+    
+        
+        
+    def choisirchemin(self):
+        self.msg_1.hide()
+        self.msg_2.hide()
+        self.msg_3.hide()
+        self.msg_4.hide()
+        self.msg_5.hide()
+        self.msg_6.hide()
+        self.msg_7.hide()
+        self.FilePath,Filetype = QFileDialog.getOpenFileName(self)
+        self.chemin.setText(self.FilePath)
+    def rchoisirchemin(self):
+        self.msg_1.hide()
+        self.msg_2.hide()
+        self.msg_3.hide()
+        self.msg_4.hide()
+        self.msg_5.hide()
+        self.msg_6.hide()
+        self.msg_7.hide()
+        self.ResultPath,ftype = QFileDialog.getOpenFileName(self)
+        self.rchemin.setText(self.ResultPath)
+        
 if __name__ == "__main__":
-	app = QApplication(sys.argv)
-	myapp = Ui_cryptofichier()
-	myapp.show()
-	sys.exit(app.exec_())
+    app = QApplication(sys.argv)
+    myapp = Ui_cryptofichier()
+    myapp.show()
+    sys.exit(app.exec_())
