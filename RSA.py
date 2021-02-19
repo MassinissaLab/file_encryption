@@ -94,26 +94,29 @@ for p in docc.paragraphs :
 
 for el in CypherText:
 
-	
 	ccc.append(el.split(" "))
 
 
 
 
 
-for elm in ccc:
-	for l in elm:
-	 	1
 
-print(ccc)
-cpt=0
+
+
 d=""
+dresult=[]
 for pr in ccc:
+	pf=[]
 	for  ll in pr :
 		tmp=base64.b64decode(ll)
 		
 		if tmp!=b'':
 
-			print(decrypt(tmp,private).decode('utf-8')+str(cpt))
-			cpt+=1
+			#print(decrypt(tmp,private).decode('utf-8')+str(cpt))
+			pf.extend(decrypt(tmp,private).decode('utf-8'))
+			
 
+	dresult.append(pf)
+
+
+print(dresult)

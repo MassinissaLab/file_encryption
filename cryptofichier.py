@@ -22,9 +22,7 @@ class Ui_cryptofichier(QMainWindow):
         self.msg_3.hide()
         self.msg_4.hide()
         self.msg_5.hide()
-        self.msg_6.hide()
-        self.msg_7.hide()
-        
+   
        
     
         self.confirmer_btn.clicked.connect(self.generercles)
@@ -35,27 +33,8 @@ class Ui_cryptofichier(QMainWindow):
         self.decrypter_btn.clicked.connect(self.decrypterf)
           
     def generercles(self):
-        self.msg_0.hide()
-         
         
-        try:
-            public, private = generer_cles(self.rsap.value(), self.rsaq.value())
-            self.rsapc=(public[0], public[1])
-            self.rsapr=(private[0], private[1])
-            self.clepub.setText(str(self.rsapc))
-            self.cleprv.setText(str(self.rsapr))
 
-
-        except :
-              self.msg_0.show() 
-
-    def generercles2(self):
-
-            public, private = p_q_autocle()
-            self.rsapc=(public[0], public[1])
-            self.rsapr=(private[0], private[1])
-            self.clepub.setText(str(self.rsapc))
-            self.cleprv.setText(str(self.rsapr))
 
               
 
@@ -67,51 +46,8 @@ class Ui_cryptofichier(QMainWindow):
         self.msg_3.hide()
         self.msg_4.hide()
         self.msg_5.hide()
-        self.msg_6.hide()
-        self.msg_7.hide()
+  
 
-        L=[]
-       
-        print(self.rsapc)
-        if self.FilePath=="":
-            self.msg_1.show()
-        elif self.ResultPath=="":
-            self.msg_6.show()
-
-        else:
-            extension=os.path.splitext(self.FilePath)
-            extr=os.path.splitext(self.ResultPath)
-
-            print("word docx encrypt \n")
-            doc =docx.Document(self.FilePath)
-
-
-            Text =[]
-            
-            for pr in doc.paragraphs :
-                Text.append(pr.text)
-
-            print(Text)
-            if Text==[]:
-                self.msg_2.show()
-            else:  
-                Q=[]
-                for elm in Text:
-                    encrypted_msg = encrypt(public,elm)
-                    x=''
-                    for i in encrypted_msg:
-                        c=chr(i) 
-                        x+=c
-
-                    
-                    
-                    Q.append(x) 
-                   
-                fcript =codecs.open(self.ResultPath,"w","utf-8-sig")
-                fcript.writelines(Q)
-                fcript.close()
-                self.msg_3.show()
-        
 
     def decrypterf(self):
         
@@ -123,72 +59,8 @@ class Ui_cryptofichier(QMainWindow):
         self.msg_3.hide()
         self.msg_4.hide()
         self.msg_5.hide()
-        self.msg_6.hide()
-        self.msg_7.hide()
+      
 
-        self.rsapr=(self.pk1.value(),self.pk2.value())
-        print(self.rsapr)
-        
-
-        if self.FilePath=="":
-            self.msg_1.show()
-        elif self.ResultPath=="":
-            self.msg_6.show()
-
-        else:
-            extension=os.path.splitext(self.FilePath)
-            extr=os.path.splitext(self.ResultPath)
-
-            if(".txt" not in extension[1]):
-                self.msg_7.show()
-
-            
-            else :
-
-                print("recuperer text")
-                L=[]
-                with codecs.open(self.FilePath, "r", "utf-8-sig") as myfile:
-                                
-                    Lines = myfile.readlines()
-                    
-                    for line in Lines:
-                        
-                        x=[]
-                        m=0
-                        for i in line:
-                            m = ord(i)
-                            x.append(m)
-
-                        
-                        
-                        decrypted_msg=decrypt(self.rsapr,x)
-                        
-                        L.append(decrypted_msg)
-
-                    
-                if L==[]:
-
-                    self.msg_2.show()
-
-                else:  
-                    if ".txt" in extr[1]:
-
-                        fcript =codecs.open(self.ResultPath, "w","utf-8-sig")
-                        fcript.writelines(L)
-                        fcript.close()
-                        self.msg_4.show()
-
-                    elif ".docx" in extr[1]:
-
-
-                        docc = docx.Document() 
-                                
-                        pp="".join(L)
-                        
-                        para = docc.add_paragraph().add_run(pp) 
-
-                        docc.save(self.ResultPath)
-                        self.msg_4.show()
                        
 
     
@@ -200,20 +72,10 @@ class Ui_cryptofichier(QMainWindow):
         self.msg_3.hide()
         self.msg_4.hide()
         self.msg_5.hide()
-        self.msg_6.hide()
-        self.msg_7.hide()
+
         self.FilePath,Filetype = QFileDialog.getOpenFileName(self)
         self.chemin.setText(self.FilePath)
-    def rchoisirchemin(self):
-        self.msg_1.hide()
-        self.msg_2.hide()
-        self.msg_3.hide()
-        self.msg_4.hide()
-        self.msg_5.hide()
-        self.msg_6.hide()
-        self.msg_7.hide()
-        self.ResultPath,ftype = QFileDialog.getOpenFileName(self)
-        self.rchemin.setText(self.ResultPath)
+
         
 if __name__ == "__main__":
     app = QApplication(sys.argv)

@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>681</width>
-    <height>478</height>
+    <height>461</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -78,7 +78,7 @@ font: 75 16pt &quot;Century Gothic&quot;;
 </string>
        </property>
        <property name="text">
-        <string>Fichier .txt / .docx</string>
+        <string>Fichier Word .docx</string>
        </property>
       </widget>
      </item>
@@ -106,8 +106,8 @@ font: 75 16pt &quot;Century Gothic&quot;;
     </property>
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>380</y>
+      <x>370</x>
+      <y>360</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -143,8 +143,8 @@ border-radius:10px;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>330</y>
+      <x>180</x>
+      <y>360</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -182,7 +182,7 @@ border-radius:10px;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>430</y>
+      <y>410</y>
       <width>281</width>
       <height>31</height>
      </rect>
@@ -205,7 +205,7 @@ font: 12pt &quot;Century Gothic&quot;;</string>
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>170</y>
+      <y>190</y>
       <width>291</width>
       <height>31</height>
      </rect>
@@ -226,7 +226,7 @@ font: 12pt &quot;Century Gothic&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>10</x>
       <y>170</y>
       <width>171</width>
       <height>31</height>
@@ -249,7 +249,7 @@ font: 12pt &quot;Century Gothic&quot;;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>430</y>
+      <y>410</y>
       <width>301</width>
       <height>31</height>
      </rect>
@@ -265,80 +265,6 @@ font: 12pt &quot;Century Gothic&quot;;</string>
      <string> Le fichier a été decrypté avec succes</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>130</y>
-      <width>121</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background:transparent;
-font: 14pt &quot;5by7&quot;;
-
-font: 14pt &quot;Century Gothic&quot;;
-
-color:#ffffff;</string>
-    </property>
-    <property name="text">
-     <string>Clé Publique</string>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="rsap">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>90</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="whatsThis">
-     <string/>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-color: rgb(255, 255, 255);
-border-radius: 0px;
-border:1px solid #9cd3e2;
-background-color: rgb(33, 65, 103);</string>
-    </property>
-    <property name="readOnly">
-     <bool>false</bool>
-    </property>
-    <property name="showGroupSeparator" stdset="0">
-     <bool>true</bool>
-    </property>
-    <property name="minimum">
-     <number>11</number>
-    </property>
-    <property name="maximum">
-     <number>99999</number>
-    </property>
-    <property name="value">
-     <number>11</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="clepub">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>130</y>
-      <width>131</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(0, 255, 0);
-background:transparent;
-font: 75 16pt &quot;Century Gothic&quot;;</string>
-    </property>
-    <property name="text">
-     <string>pck</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="chemin">
     <property name="enabled">
      <bool>true</bool>
@@ -346,7 +272,7 @@ font: 75 16pt &quot;Century Gothic&quot;;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>210</y>
+      <y>230</y>
       <width>491</width>
       <height>31</height>
      </rect>
@@ -412,27 +338,6 @@ font: 12pt &quot;Century Gothic&quot;;</string>
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>90</y>
-      <width>271</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background:transparent;
-font: 14pt &quot;5by7&quot;;
-
-font: 14pt &quot;Century Gothic&quot;;
-
-color:#ffffff;</string>
-    </property>
-    <property name="text">
-     <string>Donner les valeurs P et Q :</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="parcourire_btn">
     <property name="enabled">
      <bool>true</bool>
@@ -440,7 +345,7 @@ color:#ffffff;</string>
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>210</y>
+      <y>230</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -470,96 +375,12 @@ border-radius:10px;</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="confirmer_btn">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>90</y>
-      <width>121</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 14pt &quot;5by7&quot;;
-color: rgb(255, 255, 255);
-background-color: rgb(6, 100, 135);
-border-radius:10px;</string>
-    </property>
-    <property name="text">
-     <string>Verifier ✔</string>
-    </property>
-    <property name="shortcut">
-     <string>Return</string>
-    </property>
-    <property name="checkable">
-     <bool>false</bool>
-    </property>
-    <property name="default">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="rsaq">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>90</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-
-color: rgb(255, 255, 255);border-radius: 0px;
-border:1px solid #9cd3e2;
-background-color: rgb(33, 65, 103);</string>
-    </property>
-    <property name="readOnly">
-     <bool>false</bool>
-    </property>
-    <property name="showGroupSeparator" stdset="0">
-     <bool>true</bool>
-    </property>
-    <property name="minimum">
-     <number>11</number>
-    </property>
-    <property name="maximum">
-     <number>99999</number>
-    </property>
-    <property name="value">
-     <number>17</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="cleprv">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>130</y>
-      <width>141</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 0, 0);
-background:transparent;
-font: 75 16pt &quot;Century Gothic&quot;;</string>
-    </property>
-    <property name="text">
-     <string>prk</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>130</y>
-      <width>101</width>
+      <x>30</x>
+      <y>40</y>
+      <width>391</width>
       <height>31</height>
      </rect>
     </property>
@@ -572,37 +393,14 @@ font: 14pt &quot;Century Gothic&quot;;
 color:#ffffff;</string>
     </property>
     <property name="text">
-     <string>Clé Privée</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="msg_0">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>50</y>
-      <width>231</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background:rgba(255,0,0,0.8);
-color: rgb(255, 255, 255);
-border-radius:10px;
-font: 14pt &quot;5by7&quot;;
-font: 12pt &quot;Century Gothic&quot;;</string>
-    </property>
-    <property name="text">
-     <string>  p et q doive etre premier</string>
+     <string>Clé Auto générer les fichier .pem des cléfs</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>180</y>
+      <y>200</y>
       <width>361</width>
       <height>31</height>
      </rect>
@@ -619,12 +417,12 @@ color:#ffffff;</string>
      <string>Chemin Du fichier à crypter/ decrypter</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="confirmer_btn_2">
+   <widget class="QPushButton" name="confirmer_btn">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>130</y>
-      <width>121</width>
+      <x>490</x>
+      <y>40</y>
+      <width>141</width>
       <height>31</height>
      </rect>
     </property>
@@ -641,7 +439,7 @@ background-color: rgb(6, 100, 135);
 border-radius:10px;</string>
     </property>
     <property name="text">
-     <string>AUTO p et q </string>
+     <string>Au-Gen Cléfs</string>
     </property>
     <property name="shortcut">
      <string>Return</string>
@@ -660,7 +458,7 @@ border-radius:10px;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>290</y>
+      <y>310</y>
       <width>491</width>
       <height>31</height>
      </rect>
@@ -730,7 +528,7 @@ font: 12pt &quot;Century Gothic&quot;;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>260</y>
+      <y>280</y>
       <width>381</width>
       <height>31</height>
      </rect>
@@ -744,27 +542,7 @@ font: 14pt &quot;Century Gothic&quot;;
 color:#ffffff;</string>
     </property>
     <property name="text">
-     <string>Chemin Du fichier resultant .txt ou  .docx</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>330</y>
-      <width>471</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background:rgba(255,0,0,0.8);
-color: rgb(255, 255, 255);
-border-radius:10px;
-font: 14pt &quot;5by7&quot;;
-font: 12pt &quot;Century Gothic&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Remarque : pour le cryptage  le fichier résultant doit ête .txt </string>
+     <string>Chemin Du fichier resultant </string>
     </property>
    </widget>
    <widget class="QLabel" name="msg_5">
@@ -773,30 +551,8 @@ font: 12pt &quot;Century Gothic&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>250</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background:rgba(255,0,0,0.8);
-color: rgb(255, 255, 255);
-border-radius:10px;
-font: 12pt &quot;Century Gothic&quot;;</string>
-    </property>
-    <property name="text">
-     <string>le fichier doit être .txt</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="msg_6">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>250</y>
+      <x>400</x>
+      <y>270</y>
       <width>261</width>
       <height>31</height>
      </rect>
@@ -811,28 +567,6 @@ font: 12pt &quot;Century Gothic&quot;;</string>
      <string>Indiquer chemin fichier resultant </string>
     </property>
    </widget>
-   <widget class="QLabel" name="msg_7">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>170</y>
-      <width>291</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background:rgba(255,0,0,0.8);
-color: rgb(255, 255, 255);
-border-radius:10px;
-font: 12pt &quot;Century Gothic&quot;;</string>
-    </property>
-    <property name="text">
-     <string>.txt pour decrypter</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="parcourire_btn_2">
     <property name="enabled">
      <bool>true</bool>
@@ -840,7 +574,7 @@ font: 12pt &quot;Century Gothic&quot;;</string>
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>290</y>
+      <y>310</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -870,92 +604,218 @@ border-radius:10px;</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QSpinBox" name="pk2">
+   <widget class="QPushButton" name="prvkey">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>380</y>
-      <width>111</width>
+      <x>490</x>
+      <y>120</y>
+      <width>151</width>
       <height>31</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">
-
-color: rgb(255, 255, 255);border-radius: 0px;
-border:1px solid #9cd3e2;
-background-color: rgb(33, 65, 103);</string>
-    </property>
-    <property name="readOnly">
-     <bool>false</bool>
-    </property>
-    <property name="showGroupSeparator" stdset="0">
-     <bool>true</bool>
-    </property>
-    <property name="minimum">
-     <number>1</number>
-    </property>
-    <property name="maximum">
-     <number>99999</number>
-    </property>
-    <property name="value">
-     <number>1</number>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="pk1">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>380</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="whatsThis">
-     <string/>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="styleSheet">
-     <string notr="true">
+     <string notr="true">font: 14pt &quot;5by7&quot;;
 color: rgb(255, 255, 255);
-border-radius: 0px;
-border:1px solid #9cd3e2;
-background-color: rgb(33, 65, 103);</string>
-    </property>
-    <property name="readOnly">
-     <bool>false</bool>
-    </property>
-    <property name="showGroupSeparator" stdset="0">
-     <bool>true</bool>
-    </property>
-    <property name="minimum">
-     <number>1</number>
-    </property>
-    <property name="maximum">
-     <number>99999</number>
-    </property>
-    <property name="value">
-     <number>1</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>380</y>
-      <width>101</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background:transparent;
-font: 14pt &quot;5by7&quot;;
-
-font: 14pt &quot;Century Gothic&quot;;
-
-color:#ffffff;</string>
+background-color: rgb(6, 100, 135);
+border-radius:10px;</string>
     </property>
     <property name="text">
-     <string>Clé Privée</string>
+     <string>Fichier Clef privé</string>
+    </property>
+    <property name="shortcut">
+     <string>Return</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pubkey">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>80</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;5by7&quot;;
+color: rgb(255, 255, 255);
+background-color: rgb(6, 100, 135);
+border-radius:10px;</string>
+    </property>
+    <property name="text">
+     <string>Fichier Clef privé</string>
+    </property>
+    <property name="shortcut">
+     <string>Return</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="chemin_prvkey">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>421</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="sizeIncrement">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+color:#ffffff;
+border-radius: 0px;
+border:1px solid #9cd3e2;
+background-color: rgb(33, 65, 103);
+font: 12pt &quot;Century Gothic&quot;;</string>
+    </property>
+    <property name="inputMask">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string notr="true"/>
+    </property>
+    <property name="maxLength">
+     <number>999999999</number>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
+    </property>
+    <property name="cursorPosition">
+     <number>0</number>
+    </property>
+    <property name="placeholderText">
+     <string notr="true">chemin de la clé privé  .pem</string>
+    </property>
+    <property name="cursorMoveStyle">
+     <enum>Qt::LogicalMoveStyle</enum>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="chemin_pubkey">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>120</y>
+      <width>421</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="sizeIncrement">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+color:#ffffff;
+border-radius: 0px;
+border:1px solid #9cd3e2;
+background-color: rgb(33, 65, 103);
+font: 12pt &quot;Century Gothic&quot;;</string>
+    </property>
+    <property name="inputMask">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string notr="true"/>
+    </property>
+    <property name="maxLength">
+     <number>999999999</number>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
+    </property>
+    <property name="cursorPosition">
+     <number>0</number>
+    </property>
+    <property name="placeholderText">
+     <string notr="true">chemin de la clé public  .pem</string>
+    </property>
+    <property name="cursorMoveStyle">
+     <enum>Qt::LogicalMoveStyle</enum>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>
