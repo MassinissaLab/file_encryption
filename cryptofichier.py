@@ -16,7 +16,7 @@ class Ui_cryptofichier(QMainWindow):
         loadUi("cryptofichier.ui", self)
         self.FilePath=""
         self.ResultPath=""
-        self.msg_0.hide()
+        
         self.msg_1.hide()
         self.msg_2.hide()
         self.msg_3.hide()
@@ -26,26 +26,33 @@ class Ui_cryptofichier(QMainWindow):
        
     
         self.confirmer_btn.clicked.connect(self.generercles)
-        self.confirmer_btn_2.clicked.connect(self.generercles2)
+
+        self.pubkey.clicked.connect(self.choisirchemin)
+        self.prvkey.clicked.connect(self.choisirchemin)
         self.parcourire_btn.clicked.connect(self.choisirchemin)
-        self.parcourire_btn_2.clicked.connect(self.rchoisirchemin)
+        self.parcourire_btn_2.clicked.connect(self.choisirchemin)
+
         self.crypter_btn.clicked.connect(self.crypterf)
         self.decrypter_btn.clicked.connect(self.decrypterf)
           
     def generercles(self):
         
+        public, private =newkeys(1024)
 
 
               
 
     def crypterf(self):
+
         self.FilePath=self.chemin.text()
         self.ResultPath=self.rchemin.text()
+
         self.msg_1.hide()
         self.msg_2.hide()
         self.msg_3.hide()
         self.msg_4.hide()
         self.msg_5.hide()
+
   
 
 
@@ -53,7 +60,7 @@ class Ui_cryptofichier(QMainWindow):
         
         self.FilePath=self.chemin.text()
         self.ResultPath=self.rchemin.text()
-        self.msg_0.hide()
+        
         self.msg_1.hide()
         self.msg_2.hide()
         self.msg_3.hide()
@@ -61,10 +68,7 @@ class Ui_cryptofichier(QMainWindow):
         self.msg_5.hide()
       
 
-                       
-
-    
-        
+                
         
     def choisirchemin(self):
         self.msg_1.hide()
@@ -73,8 +77,29 @@ class Ui_cryptofichier(QMainWindow):
         self.msg_4.hide()
         self.msg_5.hide()
 
-        self.FilePath,Filetype = QFileDialog.getOpenFileName(self)
-        self.chemin.setText(self.FilePath)
+        FPath,Ftype = QFileDialog.getOpenFileName(self)
+        
+
+        if self.parcourire_btn.isChecked():
+            
+            self.chemin.setText(FPath)
+
+
+        if self.parcourire_btn_2.isChecked():
+            self.rchemin.setText(FPath)
+           
+
+
+        if self.pubkey.isChecked():
+           self.chemin_pubkey.setText(FPath)
+           self.rsapc=importKey(self.chemin_pubkey.text())
+
+
+        if self.prvkey.isChecked():
+            self.chemin_prvkey.setText(FPath)
+            self.rsapr=importKey(self.chemin_prvkey.text())
+
+
 
         
 if __name__ == "__main__":

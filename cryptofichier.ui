@@ -329,7 +329,7 @@ font: 12pt &quot;Century Gothic&quot;;</string>
      <number>0</number>
     </property>
     <property name="placeholderText">
-     <string notr="true">chemin de fichier</string>
+     <string notr="true">chemin de fichier à crypter / décrypter</string>
     </property>
     <property name="cursorMoveStyle">
      <enum>Qt::LogicalMoveStyle</enum>
@@ -369,7 +369,7 @@ border-radius:10px;</string>
      <string>Return</string>
     </property>
     <property name="checkable">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="default">
      <bool>true</bool>
@@ -515,7 +515,7 @@ font: 12pt &quot;Century Gothic&quot;;</string>
      <number>0</number>
     </property>
     <property name="placeholderText">
-     <string notr="true">chemin de fichier</string>
+     <string notr="true">chemin de fichier resultant </string>
     </property>
     <property name="cursorMoveStyle">
      <enum>Qt::LogicalMoveStyle</enum>
@@ -598,7 +598,7 @@ border-radius:10px;</string>
      <string>Return</string>
     </property>
     <property name="checkable">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="default">
      <bool>true</bool>
@@ -607,9 +607,9 @@ border-radius:10px;</string>
    <widget class="QPushButton" name="prvkey">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>120</y>
-      <width>151</width>
+      <x>480</x>
+      <y>80</y>
+      <width>161</width>
       <height>31</height>
      </rect>
     </property>
@@ -632,7 +632,7 @@ border-radius:10px;</string>
      <string>Return</string>
     </property>
     <property name="checkable">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="default">
      <bool>true</bool>
@@ -641,9 +641,9 @@ border-radius:10px;</string>
    <widget class="QPushButton" name="pubkey">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>80</y>
-      <width>151</width>
+      <x>480</x>
+      <y>120</y>
+      <width>161</width>
       <height>31</height>
      </rect>
     </property>
@@ -660,13 +660,13 @@ background-color: rgb(6, 100, 135);
 border-radius:10px;</string>
     </property>
     <property name="text">
-     <string>Fichier Clef privé</string>
+     <string>Fichier Clef public</string>
     </property>
     <property name="shortcut">
      <string>Return</string>
     </property>
     <property name="checkable">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="default">
      <bool>true</bool>

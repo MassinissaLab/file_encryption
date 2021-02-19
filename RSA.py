@@ -46,6 +46,7 @@ crypter="crypter.docx"
 doc =docx.Document(fichier)
 ClearText =[]
 cc=[]
+
 for p in doc.paragraphs :
 	ClearText.append(p.text)
 
