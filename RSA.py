@@ -100,18 +100,20 @@ for el in CypherText:
 
 
 
-cpt=0
+
 for elm in ccc:
 	for l in elm:
-	 	cpt+=1
+	 	1
 
-print(cpt)	
 print(ccc)
-
-"""
+cpt=0
 d=""
-for e in CypherText:
-	print(decrypt(base64.b64decode(e),private).decode('utf-8')+" ")
+for pr in ccc:
+	for  ll in pr :
+		tmp=base64.b64decode(ll)
+		
+		if tmp!=b'':
 
+			print(decrypt(tmp,private).decode('utf-8')+str(cpt))
+			cpt+=1
 
-"""
