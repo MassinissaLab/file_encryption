@@ -43,31 +43,42 @@ class Ui_cryptofichier(QMainWindow):
               
 
     def crypterf(self):
-
-        self.FilePath=self.chemin.text()
-        self.ResultPath=self.rchemin.text()
-
         self.msg_1.hide()
         self.msg_2.hide()
         self.msg_3.hide()
         self.msg_4.hide()
         self.msg_5.hide()
 
-  
+        self.FilePath=self.chemin.text()
+        self.ResultPath=self.rchemin.text()
+
+        extension=os.path.splitext(self.FilePath)
+        extr=os.path.splitext(self.ResultPath)
+
+        if(".docx" not in extension[1] or ".docx" not in extr[1]):
+            self.msg_2.show()
+        else :
+             print("encrypt")
 
 
     def decrypterf(self):
-        
-        self.FilePath=self.chemin.text()
-        self.ResultPath=self.rchemin.text()
-        
         self.msg_1.hide()
         self.msg_2.hide()
         self.msg_3.hide()
         self.msg_4.hide()
         self.msg_5.hide()
-      
 
+        self.FilePath=self.chemin.text()
+        self.ResultPath=self.rchemin.text()
+        
+
+        extension=os.path.splitext(self.FilePath)
+        extr=os.path.splitext(self.ResultPath)
+
+        if(".docx" not in extension[1] or ".docx" not in extr[1]):
+            self.msg_2.show()
+        else :
+            print("decrypt")
                 
         
     def choisirchemin(self):

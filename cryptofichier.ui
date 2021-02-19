@@ -228,7 +228,7 @@ font: 12pt &quot;Century Gothic&quot;;</string>
      <rect>
       <x>10</x>
       <y>170</y>
-      <width>171</width>
+      <width>301</width>
       <height>31</height>
      </rect>
     </property>
@@ -239,7 +239,7 @@ border-radius:10px;
 font: 12pt &quot;Century Gothic&quot;;</string>
     </property>
     <property name="text">
-     <string> le fichier n'existe pas </string>
+     <string> le fichier n'existe pas ou type incorrect</string>
     </property>
    </widget>
    <widget class="QLabel" name="msg_4">
