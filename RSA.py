@@ -41,6 +41,7 @@ def decrypt(ciphertext, priv_key):
    cipher = PKCS1_OAEP.new(priv_key)
    return cipher.decrypt(ciphertext)
 
+"""
 fichier="D:/WorkSpaces/Python workspace/tests/test.docx"
 crypter="crypter.docx"
 doc =docx.Document(fichier)
@@ -57,7 +58,7 @@ for el in ClearText:
 public, private =newkeys(1024)
 
 print(cc)
-pk=importKey('public.pem')
+pk=importKey('D:/WorkSpaces/Python workspace/file encryption/public.pem')
 
 
 docc = docx.Document() 
@@ -74,7 +75,8 @@ for p in cc:
 
 	result.append(pf)
 
-print(result)
+
+
 for pp in result :
 	para = docc.add_paragraph().add_run(pp)
 docc.save(crypter)
@@ -98,13 +100,6 @@ for el in CypherText:
 	ccc.append(el.split(" "))
 
 
-
-
-
-
-
-
-d=""
 dresult=[]
 for pr in ccc:
 	pf=[]
@@ -113,11 +108,23 @@ for pr in ccc:
 		
 		if tmp!=b'':
 
-			#print(decrypt(tmp,private).decode('utf-8')+str(cpt))
-			pf.extend(decrypt(tmp,private).decode('utf-8'))
+
+			print(decrypt(tmp,private).decode('utf-8'))
+			pf.append(decrypt(tmp,private).decode('utf-8')+" ")
 			
 
 	dresult.append(pf)
 
 
-print(dresult)
+
+
+
+
+ddcrypt="dcrypter.docx"
+ddocc =docx.Document()
+for ppp in dresult :
+	par = ddocc.add_paragraph().add_run(ppp)
+ddocc.save(ddcrypt)
+
+"""
+
