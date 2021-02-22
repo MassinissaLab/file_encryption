@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>675</width>
-    <height>479</height>
+    <width>680</width>
+    <height>481</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -894,7 +894,23 @@ border-radius:10px;
 font: 12pt &quot;Century Gothic&quot;;</string>
     </property>
     <property name="text">
-     <string>Votre cléf ^rivée est incorrecte</string>
+     <string>Votre cléf privée est incorrecte</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>30</y>
+      <width>681</width>
+      <height>3</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
     </property>
    </widget>
   </widget>

@@ -1,5 +1,4 @@
 from PyQt5.QtGui import *
-import os
 from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
 import time
