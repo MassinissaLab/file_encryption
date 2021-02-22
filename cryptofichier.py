@@ -7,8 +7,8 @@ import os,subprocess,sys
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtCore import Qt
 from RSA import *
-
 import docx 
+
 class Ui_cryptofichier(QMainWindow):
     global   rsapc,rsapr,FilePath,ResultPath
     def __init__(self):
@@ -24,6 +24,7 @@ class Ui_cryptofichier(QMainWindow):
         self.msg_5.hide()
         self.msg_6.hide()
         self.msg_7.hide()
+        self.msg_8.hide()
        
     
         self.confirmer_btn.clicked.connect(self.generercles)
@@ -52,6 +53,7 @@ class Ui_cryptofichier(QMainWindow):
         self.msg_5.hide()
         self.msg_6.hide()
         self.msg_7.hide()
+        self.msg_8.hide()
 
         self.FilePath=self.chemin.text()
         self.ResultPath=self.rchemin.text()
@@ -117,6 +119,7 @@ class Ui_cryptofichier(QMainWindow):
         self.msg_5.hide()
         self.msg_6.hide()
         self.msg_7.hide()
+        self.msg_8.hide()
 
         self.FilePath=self.chemin.text()
         self.ResultPath=self.rchemin.text()
@@ -155,8 +158,10 @@ class Ui_cryptofichier(QMainWindow):
                         
                         if tmp!=b'':
 
-
-                            pf.append(decrypt(tmp,self.rsapr).decode('utf-8')+" ")
+                            try:
+                                pf.append(decrypt(tmp,self.rsapr).decode('utf-8')+" ")
+                            except:
+                                self.msg_8.show()
                             
 
                     dresult.append(pf)
@@ -177,16 +182,20 @@ class Ui_cryptofichier(QMainWindow):
         self.msg_4.hide()
         self.msg_5.hide()
         self.msg_6.hide()
+        self.msg_7.hide()
+        self.msg_8.hide()
         
 
 
         if self.parcourire_btn.isChecked():
             FPath,Ftype = QFileDialog.getOpenFileName(self)
+            self.parcourire_btn.setChecked(False)
             self.chemin.setText(FPath)
 
 
         elif self.parcourire_btn_2.isChecked():
             FPath,Ftype = QFileDialog.getOpenFileName(self)
+            self.parcourire_btn_2.setChecked(False)
             self.rchemin.setText(FPath)
            
 
@@ -194,6 +203,7 @@ class Ui_cryptofichier(QMainWindow):
         elif self.pubkey.isChecked():
            FPath,Ftype = QFileDialog.getOpenFileName(self)
            ext=os.path.splitext(FPath)
+           self.pubkey.setChecked(False)
            self.chemin_pubkey.setText(FPath)
            if self.chemin_pubkey.text()=="" or ".pem" not in ext[1]:
                 self.msg_6.show()
@@ -203,6 +213,7 @@ class Ui_cryptofichier(QMainWindow):
 
         elif self.prvkey.isChecked():
             FPath,Ftype = QFileDialog.getOpenFileName(self)
+            self.prvkey.setChecked(False)
             ext=os.path.splitext(FPath)
             self.chemin_prvkey.setText(FPath)
             if self.chemin_prvkey.text()=="":

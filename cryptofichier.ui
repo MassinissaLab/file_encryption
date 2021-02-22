@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>694</width>
+    <width>675</width>
     <height>479</height>
    </rect>
   </property>
@@ -122,7 +122,7 @@ font: 75 16pt &quot;Century Gothic&quot;;
      <string notr="true">font: 14pt &quot;5by7&quot;;
 color: rgb(255, 255, 255);
 background-color: rgb(6, 100, 135);
-border-radius:10px;</string>
+</string>
     </property>
     <property name="text">
      <string>Decrypter</string>
@@ -160,7 +160,7 @@ border-radius:10px;</string>
 font: 14pt &quot;5by7&quot;;
 border-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);font: 14pt &quot;5by7&quot;;
-border-radius:10px;</string>
+</string>
     </property>
     <property name="text">
      <string>Crypter</string>
@@ -227,7 +227,7 @@ font: 12pt &quot;Century Gothic&quot;;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>200</y>
+      <y>190</y>
       <width>301</width>
       <height>31</height>
      </rect>
@@ -360,7 +360,7 @@ font: 12pt &quot;Century Gothic&quot;;</string>
      <string notr="true">font: 14pt &quot;5by7&quot;;
 color: rgb(255, 255, 255);
 background-color: rgb(6, 100, 135);
-border-radius:10px;</string>
+</string>
     </property>
     <property name="text">
      <string>Parcourire</string>
@@ -390,9 +390,9 @@ border-radius:10px;</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>70</y>
-      <width>391</width>
+      <width>491</width>
       <height>31</height>
      </rect>
     </property>
@@ -405,7 +405,7 @@ font: 14pt &quot;Century Gothic&quot;;
 color:#ffffff;</string>
     </property>
     <property name="text">
-     <string> Auto générer les fichier .pem des cléfs</string>
+     <string> Auto généreration  des es fichier .pem des cléfs RSA</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -432,9 +432,9 @@ color:#ffffff;</string>
    <widget class="QPushButton" name="confirmer_btn">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>510</x>
       <y>70</y>
-      <width>141</width>
+      <width>161</width>
       <height>31</height>
      </rect>
     </property>
@@ -448,7 +448,7 @@ color:#ffffff;</string>
      <string notr="true">font: 14pt &quot;5by7&quot;;
 color: rgb(255, 255, 255);
 background-color: rgb(6, 100, 135);
-border-radius:10px;</string>
+</string>
     </property>
     <property name="text">
      <string>Au-Gen Cléfs</string>
@@ -601,7 +601,7 @@ font: 12pt &quot;Century Gothic&quot;;</string>
      <string notr="true">background-color: rgb(6, 100, 135);
 font: 14pt &quot;5by7&quot;;
 color: rgb(255, 255, 255);
-border-radius:10px;</string>
+</string>
     </property>
     <property name="text">
      <string>Parcourire</string>
@@ -619,7 +619,7 @@ border-radius:10px;</string>
    <widget class="QPushButton" name="prvkey">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>510</x>
       <y>150</y>
       <width>161</width>
       <height>31</height>
@@ -635,7 +635,7 @@ border-radius:10px;</string>
      <string notr="true">font: 14pt &quot;5by7&quot;;
 color: rgb(255, 255, 255);
 background-color: rgb(6, 100, 135);
-border-radius:10px;</string>
+</string>
     </property>
     <property name="text">
      <string>Fichier Clef privé</string>
@@ -653,7 +653,7 @@ border-radius:10px;</string>
    <widget class="QPushButton" name="pubkey">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>510</x>
       <y>110</y>
       <width>161</width>
       <height>31</height>
@@ -669,7 +669,7 @@ border-radius:10px;</string>
      <string notr="true">font: 14pt &quot;5by7&quot;;
 color: rgb(255, 255, 255);
 background-color: rgb(6, 100, 135);
-border-radius:10px;</string>
+</string>
     </property>
     <property name="text">
      <string>Fichier Clef public</string>
@@ -690,9 +690,9 @@ border-radius:10px;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>150</y>
-      <width>421</width>
+      <width>491</width>
       <height>31</height>
      </rect>
     </property>
@@ -763,9 +763,9 @@ font: 12pt &quot;Century Gothic&quot;;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>110</y>
-      <width>421</width>
+      <width>491</width>
       <height>31</height>
      </rect>
     </property>
@@ -873,6 +873,28 @@ font: 12pt &quot;Century Gothic&quot;;</string>
     </property>
     <property name="text">
      <string>Les Cléfs sont génerées</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="msg_8">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>190</y>
+      <width>311</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:rgba(255,0,0,0.8);
+color: rgb(255, 255, 255);
+border-radius:10px;
+font: 12pt &quot;Century Gothic&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Votre cléf ^rivée est incorrecte</string>
     </property>
    </widget>
   </widget>
