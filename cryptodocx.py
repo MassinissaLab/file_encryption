@@ -125,12 +125,12 @@ class Ui_CRYPTOFICHIER(object):
         self.chemin.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.chemin.setAutoFillBackground(False)
         self.chemin.setStyleSheet("\n"
-"\n"
-"color:#ffffff;\n"
-"border-radius: 0px;\n"
-"border:1px solid #9cd3e2;\n"
-"background-color: rgb(33, 65, 103);\n"
-"font: 12pt \"Century Gothic\";")
+                                    "\n"
+                                    "color:#ffffff;\n"
+                                    "border-radius: 0px;\n"
+                                    "border:1px solid #9cd3e2;\n"
+                                    "background-color: rgb(33, 65, 103);\n"
+                                    "font: 12pt \"Century Gothic\";")
         self.chemin.setInputMask("")
         self.chemin.setText("")
         self.chemin.setMaxLength(999999999)
@@ -389,7 +389,7 @@ class Ui_CRYPTOFICHIER(object):
         self.msg_4.setText(_translate("CRYPTOFICHIER", " Le fichier a été decrypté avec succes"))
         self.parcourire_btn.setText(_translate("CRYPTOFICHIER", "Parcourire"))
         self.parcourire_btn.setShortcut(_translate("CRYPTOFICHIER", "Return"))
-        self.label_3.setText(_translate("CRYPTOFICHIER", " Auto généreration  des es fichier .pem des cléfs RSA"))
+        self.label_3.setText(_translate("CRYPTOFICHIER", " Auto généreration  des fichier .pem des cléfs RSA"))
         self.label_2.setText(_translate("CRYPTOFICHIER", "Chemin Du fichier à crypter/ decrypter"))
         self.confirmer_btn.setText(_translate("CRYPTOFICHIER", "Au-Gen Cléfs"))
         self.confirmer_btn.setShortcut(_translate("CRYPTOFICHIER", "Return"))
@@ -462,8 +462,7 @@ class Ui_CRYPTOFICHIER(object):
                 self.msg_2.show()
 
             else :
-                print("encrypt")
-                print(self.rsapc)
+                
                 doc =docx.Document(self.FilePath)
                 ClearText =[]
                 cc=[]
@@ -492,7 +491,7 @@ class Ui_CRYPTOFICHIER(object):
 
                     result.append(pf)
 
-                print(result)
+                
                 for pp in result :
                     para = docc.add_paragraph().add_run(pp)
                 docc.save(self.ResultPath)
