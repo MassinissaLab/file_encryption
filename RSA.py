@@ -5,8 +5,6 @@ from Crypto import Random
 import base64
 import docx
 
-
-
 def newkeys(keysize):
    random_generator = Random.new().read
    key = RSA.generate(keysize, random_generator)
