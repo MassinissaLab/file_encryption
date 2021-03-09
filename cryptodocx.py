@@ -527,7 +527,7 @@ class Ui_CRYPTOFICHIER(object):
             
             else :
                 docc =docx.Document(self.FilePath)
-                print(self.FilePath)
+                
                 
 
                 CypherText =[]
